@@ -167,4 +167,8 @@ public class SudokuViewModel implements Sudokable {
         gameStarted = false;
         winner.set(true);
     }
+
+    public String getBoardAsString() {
+        return sudoku.printBoard();
+    }
 }

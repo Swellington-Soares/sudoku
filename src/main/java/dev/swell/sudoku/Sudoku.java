@@ -144,4 +144,18 @@ public class Sudoku {
     public Sudoku() {
         newGame(Difficulty.EASY);
     }
+
+
+    public String printBoard() {
+        var sb = new StringBuilder();
+        for (int row = 0; row < sudokuGrid.length; row++) {
+            if (row % 3 == 0 && row != 0) sb.append("------+-------+------\n");
+            for (int col = 0; col < sudokuGrid[row].length; col++) {
+                if (col % 3 == 0 && col != 0) sb.append("| ");
+                sb.append((sudokuGrid[row][col] == 0 ? ". " : sudokuGrid[row][col] + " "));
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }

@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" prefHeight="582.0" prefWidth="433.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.swell.sudoku.HelloController">
+<VBox alignment="TOP_CENTER" prefHeight="646.0" prefWidth="479.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.swell.sudoku.SudokuController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="8.0" />
     </padding>
@@ -77,7 +77,19 @@
             <Insets />
          </opaqueInsets>
       </HBox>
-      <ComboBox fx:id="cbDifficult" maxHeight="1.7976931348623157E308" prefWidth="150.0" promptText="DIFICULDADE" VBox.vgrow="ALWAYS" />
+      <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DIFICULDADE" textAlignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="8.0" />
+               </VBox.margin>
+            </Text>
+            <ComboBox fx:id="cbDifficult" maxHeight="1.7976931348623157E308" prefWidth="150.0" promptText="DIFICULDADE" />
+         </children>
+      </VBox>
       <GridPane fx:id="board" alignment="CENTER" prefHeight="346.0" prefWidth="354.0" VBox.vgrow="ALWAYS">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -111,12 +123,12 @@
       </GridPane>
       <HBox alignment="CENTER">
          <children>
-            <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="button-novo" text="NOVO" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonExportBoardAction" styleClass="button-export-board" text="EXPORTAR TABULEIRO" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets right="8.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="resolverButton1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="button-resolver" text="RESOLVER" HBox.hgrow="ALWAYS">
+            <Button fx:id="resolverButton1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonSaveImageAction" styleClass="button-save-image" text="SALVAR IMAGEM" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets left="8.0" />
                </HBox.margin>

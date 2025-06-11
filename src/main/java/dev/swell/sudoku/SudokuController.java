@@ -6,21 +6,31 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 
+import javafx.embed.swing.SwingFXUtils;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 
-public class HelloController {
+
+public class SudokuController {
 
     private final TextField[][] cells = new TextField[9][9];
+    private SudokuViewModel viewModel;
+
+    private final FileChooser  fileChooser = new FileChooser();
 
     @FXML
     private Button resolverButton;
 
     @FXML
     private GridPane board;
-
-    private SudokuViewModel viewModel;
 
     @FXML
     private ComboBox<Difficulty> cbDifficult;
@@ -30,13 +40,47 @@ public class HelloController {
         newGame();
     }
 
-    private void newGame() {
-        viewModel.newGame(cbDifficult.getValue());
-    }
-
     @FXML
     void onButtonSolverAction() {
         viewModel.solverGame();
+    }
+
+    @FXML
+    void onButtonExportBoardAction() throws FileNotFoundException {
+        fileChooser.setTitle("Exportar tabuleiro?");
+        fileChooser.setInitialFileName("board.txt");
+        fileChooser.getExtensionFilters().clear();
+        fileChooser.getExtensionFilters().addAll(
+                new  FileChooser.ExtensionFilter("Arquivo de texto", "*.txt")
+        );
+
+        File file = fileChooser.showSaveDialog(board.getScene().getWindow());
+        if (file != null) {
+            var boardText = viewModel.getBoardAsString();
+            var write = new PrintWriter(file);
+            write.print(boardText);
+            write.close();
+        }
+    }
+
+    @FXML
+    void onButtonSaveImageAction() throws IOException {
+        fileChooser.setTitle("Exportar image?");
+        fileChooser.setInitialFileName("board.png");
+        fileChooser.getExtensionFilters().clear();
+        fileChooser.getExtensionFilters().addAll(
+                new  FileChooser.ExtensionFilter("Imagem PNG", "*.png")
+        );
+
+        File file = fileChooser.showSaveDialog(board.getScene().getWindow());
+        if (file != null) {
+           var image = board.snapshot(null, null);
+           ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
+        }
+    }
+
+    private void newGame() {
+        viewModel.newGame(cbDifficult.getValue());
     }
 
     private void assembleBoard(){
@@ -94,7 +138,6 @@ public class HelloController {
             styles += "-fx-text-fill: red;";
         }
         node.setStyle(styles);
-
     }
 
     private void removeError(Node node) {

@@ -67,3 +67,32 @@
     -fx-text-alignment: CENTER;
 
 }
+
+.button.button-export-board:focused {
+    -fx-border-color: transparent, black;
+}
+
+
+.button.button-export-board:hover {
+    -fx-background-color: #010e20;
+    -fx-text-fill: white;
+}
+
+.button.button-export-board:pressed {
+    -fx-background-color: #193760;
+    -fx-text-fill: white;
+}
+
+
+.button.button-save-image:focused {
+    -fx-border-color: transparent, black;
+}
+.button.button-save-image:hover {
+    -fx-background-color: #f109ca;
+    -fx-text-fill: white;
+}
+.button.button-save-image:pressed {
+    -fx-background-color: #8e046d;
+    -fx-text-fill: white;
+}
+
