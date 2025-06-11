@@ -1,0 +1,69 @@
+.button{
+    /*-fx-border-color: transparent;*/
+    /*-fx-border-width: 0;*/
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 1.5em; /* 12 */
+    -fx-text-fill: #828282;
+}
+
+.button:focused {
+    -fx-border-color: transparent, black;
+    -fx-border-style: solid;
+    -fx-border-radius: 0, 0;
+}
+
+.button:pressed {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+.button.button-novo {
+    -fx-background-color: #7eddc0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button.button-novo:hover {
+    -fx-background-color: #236150;
+}
+
+.button.button-novo:pressed {
+    -fx-background-color: #7eddc0;
+}
+
+.button.button-resolver {
+    -fx-background-color: #7e94dd;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button.button-resolver:hover {
+    -fx-background-color: #252361;
+}
+
+.button.button-resolver:pressed {
+    -fx-background-color: #7e9cdd;
+}
+
+.grid-item {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.5em;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.combo-box-base {
+    /*-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;*/
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: CENTER;
+    -fx-font-weight: bold;
+    -fx-background-color: #edbe4e;
+    -fx-text-alignment: CENTER;
+
+}

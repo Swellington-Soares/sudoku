@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" prefHeight="524.0" prefWidth="433.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.swell.sudoku.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="8.0" />
+    </padding>
+   <children>
+      <Text stroke="#1b1a1a" strokeType="OUTSIDE" strokeWidth="2.0" text="SUDOKU">
+         <font>
+            <Font name="Arial Black" size="37.0" />
+         </font>
+         <fill>
+            <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.3257575540831595" startY="0.5757575685327704">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6736842393875122" green="0.6196231245994568" blue="0.0249512679874897" opacity="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.09152086137281293">
+                     <color>
+                        <Color red="0.6736842393875122" green="0.6196231245994568" blue="0.0249512679874897" opacity="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.5060401142369432">
+                     <color>
+                        <Color red="0.2846393883228302" green="0.5157894492149353" blue="0.31160688400268555" opacity="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.7949840790467124">
+                     <color>
+                        <Color red="0.07699999958276749" green="0.2733500003814697" blue="0.7699999809265137" opacity="0.8700000047683716" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Glow />
+         </effect>
+      </Text>
+      <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+         <children>
+            <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonNewGameAction" styleClass="button-novo" text="NOVO" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets right="8.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="resolverButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonSolverAction" styleClass="button-resolver" text="RESOLVER" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="8.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <ComboBox fx:id="cbDifficult" maxHeight="1.7976931348623157E308" prefWidth="150.0" promptText="DIFICULDADE" VBox.vgrow="ALWAYS" />
+      <GridPane fx:id="board" alignment="CENTER" prefHeight="346.0" prefWidth="354.0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <VBox.margin>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </VBox.margin>
+         <children>
+            <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="34.0" prefWidth="39.0" promptText="0" styleClass="grid-item" text="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES" />
+         </children>
+         
+      </GridPane>
+   </children>
+</VBox>
