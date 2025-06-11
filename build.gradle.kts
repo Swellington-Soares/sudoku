@@ -27,12 +27,12 @@ tasks.withType<JavaCompile> {
 
 application {
     mainModule.set("dev.swell.sudoku")
-    mainClass.set("dev.swell.sudoku.HelloApplication")
+    mainClass.set("dev.swell.sudoku.SudokuApp")
 }
 
 javafx {
     version = "17.0.6"
-    modules = listOf("javafx.controls", "javafx.fxml")
+    modules = listOf("javafx.controls", "javafx.fxml", "javafx.graphics", "javafx.swing")
 }
 
 dependencies {
